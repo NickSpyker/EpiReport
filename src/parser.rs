@@ -31,6 +31,7 @@ impl From<Vec<String>> for Log {
 }
 
 impl Log {
+
     pub fn parse(buffer: String) -> Result<Vec<Log>, String> {
         let mut result: Vec<Log> = vec![];
 
@@ -50,5 +51,15 @@ impl Log {
         }
 
         Ok(result)
+    }
+
+    pub fn get_path(&self) -> Vec<String> {
+        let mut result: Vec<String> = vec![];
+        for elem in self.path.split('/') {
+            if elem != "." {
+                result.push(elem.to_string());
+            }
+        }
+        result
     }
 }
