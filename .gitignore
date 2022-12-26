@@ -6,4 +6,4 @@
 **/*.rs.bk
 
 # log file
-coding-style-reports.log
+*.log
