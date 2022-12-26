@@ -4,7 +4,7 @@ use std::{
     process::Command
 };
 
-pub fn get_coding_style_reports(path: PathBuf) -> Result<String, String>
+pub fn get_coding_style_reports(path: &PathBuf) -> Result<String, String>
 {
     let reports_file_path: String = format!("{}/coding-style-reports.log", path.display());
 
