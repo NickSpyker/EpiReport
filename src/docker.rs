@@ -15,7 +15,7 @@ pub fn get_coding_style_reports(path: &Path) -> Result<String, String>
         "pull",
         "ghcr.io/epitech/coding-style-checker:latest"
     ]).output() {
-        Ok(output) => println!("{}", String::from_utf8_lossy(&output.stdout)),
+        Ok(_) => (),
         Err(_) => return Err("Impossible de telecharger l image Docker !".to_string())
     }
 
@@ -25,7 +25,7 @@ pub fn get_coding_style_reports(path: &Path) -> Result<String, String>
         "prune",
         "-f"
     ]).output() {
-        Ok(output) => println!("{}", String::from_utf8_lossy(&output.stdout)),
+        Ok(_) => (),
         Err(_) => return Err("Impossible de supprimer les anciennes versions de l image Docker".to_string())
     }
 

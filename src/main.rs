@@ -9,7 +9,7 @@ fn main() -> Result<(), String>
 {
     let buffer: String = match Path::new(".").canonicalize() {
         Ok(dir) => {
-            println!("Chemin du repertoire courant : {}", dir.display());
+            println!("{}", dir.display());
             docker::get_coding_style_reports(&dir)?
         },
         Err(_) => return Err("Impossible de recuperer le chemin du repertoire courant !".to_string())
