@@ -1,10 +1,10 @@
 use std::{
-    path::PathBuf,
+    path::Path,
     fs::{remove_file, read_to_string},
     process::Command
 };
 
-pub fn get_coding_style_reports(path: &PathBuf) -> Result<String, String>
+pub fn get_coding_style_reports(path: &Path) -> Result<String, String>
 {
     let reports_file_path: String = format!("{}/coding-style-reports.log", path.display());
 
