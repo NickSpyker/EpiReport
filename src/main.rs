@@ -12,7 +12,7 @@ fn main() -> Result<(), String>
             println!("Chemin du repertoire courant : {}", dir.display());
             dir
         },
-        Err(_) => return Err("ERREUR : Impossible de recuperer le chemin du repertoire courant !".to_string())
+        Err(_) => return Err("Impossible de recuperer le chemin du repertoire courant !".to_string())
     };
 
     let buffer: String = docker::get_coding_style_reports(&current_directory)?;

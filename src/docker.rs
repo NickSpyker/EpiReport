@@ -16,7 +16,7 @@ pub fn get_coding_style_reports(path: &Path) -> Result<String, String>
         "ghcr.io/epitech/coding-style-checker:latest"
     ]).output() {
         Ok(output) => println!("{}", String::from_utf8_lossy(&output.stdout)),
-        Err(_) => return Err("ERREUR : Impossible de telecharger l image Docker !".to_string())
+        Err(_) => return Err("Impossible de telecharger l image Docker !".to_string())
     }
 
     match Command::new("sudo").args([
@@ -26,7 +26,7 @@ pub fn get_coding_style_reports(path: &Path) -> Result<String, String>
         "-f"
     ]).output() {
         Ok(output) => println!("{}", String::from_utf8_lossy(&output.stdout)),
-        Err(_) => return Err("ERREUR : Impossible de supprimer les anciennes versions de l image Docker".to_string())
+        Err(_) => return Err("Impossible de supprimer les anciennes versions de l image Docker".to_string())
     }
 
     match Command::new("sudo").args([
@@ -44,8 +44,8 @@ pub fn get_coding_style_reports(path: &Path) -> Result<String, String>
     ]).output() {
         Ok(_) => match read_to_string(reports_file_path) {
             Ok(buffer) => Ok(buffer),
-            Err(_) => Err("ERREUR : Impossible de lire les rapports !".to_string())
+            Err(_) => Err("Impossible de lire les rapports !".to_string())
         },
-        Err(_) => Err("ERREUR : Impossible de generer les rapports !".to_string())
+        Err(_) => Err("Impossible de generer les rapports !".to_string())
     }
 }
