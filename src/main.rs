@@ -1,25 +1,21 @@
 mod docker;
+mod parser;
+mod tree;
 
-use std::{
-    path::{PathBuf, Path},
-    fs::remove_file
-};
+use std::path::Path;
+use crate::parser::Log;
 
 fn main() -> Result<(), String>
 {
-    let current_directory: PathBuf = match Path::new(".").canonicalize() {
+    let buffer: String = match Path::new(".").canonicalize() {
         Ok(dir) => {
             println!("Chemin du repertoire courant : {}", dir.display());
-            dir
+            docker::get_coding_style_reports(&dir)?
         },
         Err(_) => return Err("Impossible de recuperer le chemin du repertoire courant !".to_string())
     };
 
-    let buffer: String = docker::get_coding_style_reports(&current_directory)?;
-
-    println!("{buffer}");
-
-    remove_file(format!("{}/coding-style-reports.log", current_directory.display())).unwrap_or(());
+    tree::display(Log::parse(buffer)?)?;
 
     Ok(())
 }

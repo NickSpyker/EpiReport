@@ -42,8 +42,11 @@ pub fn get_coding_style_reports(path: &Path) -> Result<String, String>
         "/mnt/delivery",
         "/mnt/reports"
     ]).output() {
-        Ok(_) => match read_to_string(reports_file_path) {
-            Ok(buffer) => Ok(buffer),
+        Ok(_) => match read_to_string(&reports_file_path) {
+            Ok(buffer) => {
+                remove_file(reports_file_path).unwrap_or(());
+                Ok(buffer)
+            },
             Err(_) => Err("Impossible de lire les rapports !".to_string())
         },
         Err(_) => Err("Impossible de generer les rapports !".to_string())
