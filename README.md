@@ -1,2 +1,2 @@
-# epitech-coding-style-checker
+# Tree Report
 An interface to epitech's coding style checker
