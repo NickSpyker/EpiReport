@@ -99,7 +99,7 @@ pub fn print_description(log: &Log) -> crossterm::Result<()>
         stdout(),
         Print("└── ".to_string()),
         SetAttribute(Attribute::Bold),
-        Print(format!("{}", json_data[&log.error_code])),
+        Print(format!("{}\n", json_data[&log.error_code])),
         SetAttribute(Attribute::Reset)
     )
 }
