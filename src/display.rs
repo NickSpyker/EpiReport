@@ -4,7 +4,7 @@ use crate::Log;
 use serde_json::Value;
 use crossterm::{
     execute,
-    style::{Print, SetForegroundColor, SetBackgroundColor, ResetColor, Color, SetAttribute, Attribute}
+    style::{Print, SetForegroundColor, ResetColor, Color, SetAttribute, Attribute}
 };
 
 use crate::parser::logs::ErrorType;
