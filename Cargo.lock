@@ -46,6 +46,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "epireport"
+version = "0.1.0"
+dependencies = [
+ "crossterm",
+ "serde_json",
+]
+
+[[package]]
 name = "itoa"
 version = "1.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -184,14 +192,6 @@ name = "smallvec"
 version = "1.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a507befe795404456341dfab10cef66ead4c041f62b8b11bbb92bffe5d0953e0"
-
-[[package]]
-name = "tree-report"
-version = "0.1.0"
-dependencies = [
- "crossterm",
- "serde_json",
-]
 
 [[package]]
 name = "wasi"

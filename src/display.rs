@@ -16,7 +16,7 @@ pub fn print(log: Log)
     match print_error_type(&log) { Ok(_) | Err(_) => () };
     match print_error_code(&log) { Ok(_) | Err(_) => () };
     match print_description(&log) { Ok(_) | Err(_) => () };
-    print!("\n");
+    println!();
 }
 
 fn print_path(log: &Log) -> crossterm::Result<()>
