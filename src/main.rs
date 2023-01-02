@@ -2,6 +2,9 @@ mod tools;
 mod epitech;
 mod docker;
 mod parser;
+mod display;
+
+use crate::parser::logs::Log;
 
 const REPORT_FILE_NAME: &str = "coding-style-reports.log";
 
@@ -17,7 +20,12 @@ fn main() -> Result<(), String>
 
     let buffer: String = tools::read_file(&current_working_directory, REPORT_FILE_NAME)?;
 
-    let parsed_logs: Vec<parser::logs::Log> = parser::logs::build_log(&current_working_directory, buffer);
+    let parsed_logs: Vec<Log> = Log::build_log(buffer);
+
+    for log in parsed_logs {
+
+        display::print(log);
+    }
 
     tools::remove_file_if_exists(&current_working_directory, REPORT_FILE_NAME);
 
